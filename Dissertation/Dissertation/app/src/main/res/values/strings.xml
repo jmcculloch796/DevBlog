@@ -26,5 +26,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main">Home</string>
+    <string name="title_activity_alert_page">AlertPage</string>
+    <string name="title_activity_add_contacts">addContacts</string>
+    <string name="title_activity_remove_contact">removeContact</string>
 </resources>
 

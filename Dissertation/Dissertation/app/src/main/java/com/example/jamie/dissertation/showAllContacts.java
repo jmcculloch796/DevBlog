@@ -12,6 +12,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.SmsManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -31,6 +32,8 @@ public class showAllContacts extends MainActivity {
     static ArrayList<String> appcontacts = new ArrayList<String>();
     ArrayList<String> names = new ArrayList<String>();
     ArrayList<String> numbers = new ArrayList<String>();
+    myDBHandler dbHandler = new myDBHandler(this, null, null, 1);
+
 
 
     @Override
@@ -45,21 +48,7 @@ public class showAllContacts extends MainActivity {
         dynamicContent.addView(wizard);
 
         readContacts();
-Button b1;
-        b1 = (Button)findViewById(R.id.button);
-        sharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 
-        b1.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-
-                editor.putString("Contacts", appcontacts.toString());
-                editor.apply();
-
-            }
-        });
 
              /*  Intent intent = getIntent();
         appcontacts = intent.getStringArrayListExtra("savedContacts");
@@ -76,27 +65,9 @@ Button b1;
 */
     }
 
-
-    public void printToScreen() {
-        System.out.println("Test");
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
-                this,
-                android.R.layout.simple_list_item_1,
-                appcontacts);
-
-
-        for (int i = 0; i < appcontacts.size(); i++) {
-
-            System.out.println("This is a test");
-            System.out.println(appcontacts);
-            alv = (ListView) findViewById(R.id.showcontactsView);
-            alv.setAdapter(arrayAdapter);
-            arrayAdapter.notifyDataSetChanged();
-
-        }
-    }
-
     public void readContacts() {
+        SharedPreferences sp = getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        final String userName = sp.getString("userName", "missing");
         ContentResolver cr = getContentResolver();
         Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI,
                 null, null, null, null);
@@ -153,8 +124,15 @@ Button b1;
                     adb.setNegativeButton("Cancel", null);
                     adb.setPositiveButton("Ok", new AlertDialog.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            appcontacts.add(contacts.get(position));
-                            arrayAdapter.notifyDataSetChanged();
+
+                            String contactName1 = names.get(position);
+                            String contactNumber = numbers.get(position);
+                            ContactsDB contact =
+                                    new ContactsDB(contactName1, contactNumber);
+
+                            dbHandler.addProduct(contact);
+                           SmsManager.getDefault().sendTextMessage(contactNumber, null, "You have been added as an emergency contact by " + userName + " through KeepSafe, expect some location updates!", null,null);
+
 
                         }
                     });

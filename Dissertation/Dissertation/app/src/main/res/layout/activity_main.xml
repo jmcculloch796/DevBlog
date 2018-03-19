@@ -8,6 +8,14 @@
 
     <include layout="@layout/content_main" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/AlertButton"
+        android:onClick = "openAlert"
+        android:text="ALERT MODE"
+        android:layout_gravity="bottom|left"/>
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -15,13 +23,5 @@
         android:layout_gravity="bottom|end"
         android:onClick="openPanic"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/alert_dark_frame" />
-
-    <Button
-        android:id="@+id/stateButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="changeState"
-        android:layout_gravity="bottom|start"
-        android:text="Change state"/>
+        app:srcCompat="@drawable/ic_priority_high_black_24dp" />
 </android.support.design.widget.CoordinatorLayout>
