@@ -4,30 +4,36 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.telephony.SmsManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static com.example.jamie.dissertation.showAllContacts.appcontacts;
+import org.w3c.dom.Text;
+
+import java.util.Arrays;
 
 
-public class RequestLocation extends Activity {
-
-    // Assume thisActivity is the current activity
-
+public class RequestLocation extends MainActivity {
 
     private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters
 
@@ -36,52 +42,50 @@ public class RequestLocation extends Activity {
 
     protected LocationManager locationManager;
 
-
     protected Button retrieveLocationButton;
 
-    private TextView mTextMessage;
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+    //myDBHandler db = new myDBHandler(this,null,null ,1);
+    myDBHandler dbHandler = new myDBHandler(this, null, null, 1);
+    String[] savedContacts;
+    String textContacts;
 
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    openHome();
-                    return true;
-                case R.id.navigation_call:
-                    openSavedContacts();
-                    return true;
-                case R.id.navigation_location:
-                    return true;
-                case R.id.navigation_settings:
-                    openSettings();
-                    return true;
-                case R.id.navigation_map:
-                    openMap();
-                    return true;
-            }
-            return false;
-        }
-    };
     @Override
 
     public void onCreate(Bundle savedInstanceState) {
+        savedContacts = dbHandler.getContacts();
 
 
+        textContacts = Arrays.deepToString(savedContacts);
+        //  System.out.println("On this page  " + Arrays.deepToString(savedContacts));
+        int indexOfOpenBracket = textContacts.indexOf("[");
+        int indexOfLastBracket = textContacts.lastIndexOf("]");
+
+        textContacts = textContacts.substring(indexOfOpenBracket + 1, indexOfLastBracket);
+        LinearLayout dynamicContent, bottonNavBar;
+        //    System.out.println("TEST---------------------");
+        //  System.out.println(savedContacts);
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_request_location);
+        // setContentView(R.layout.activity_request_location);
 
-        Intent intent = getIntent();
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        dynamicContent = (LinearLayout) findViewById(R.id.dynamicContent);
+        bottonNavBar = (LinearLayout) findViewById(R.id.bottonNavBar);
+        View wizard = getLayoutInflater().inflate(R.layout.activity_request_location, null);
 
-        retrieveLocationButton = (Button) findViewById(R.id.retrieve_location_button);
+        dynamicContent.addView(wizard);
 
+        RadioGroup rg = (RadioGroup) findViewById(R.id.radioGroup1);
+        RadioButton rb = (RadioButton) findViewById(R.id.requestLocation);
+        rb.setTextColor(Color.parseColor("#3F51B5"));
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        retrieveLocationButton = (Button) findViewById(R.id.retrieve_location_button);
+        TextView helper = (TextView) findViewById(R.id.Helper);
+
+        helper.setText("You will have already sent a location update by clicking the location button but you" +
+                " can remain on this page if you'd like to send your location again using the button below. Remember " +
+                "you can change your settings to modify the text before it sends, or sending it automatically on button click");
 
         locationManager.requestLocationUpdates(
                 LocationManager.GPS_PROVIDER,
@@ -89,7 +93,7 @@ public class RequestLocation extends Activity {
                 MINIMUM_DISTANCE_CHANGE_FOR_UPDATES,
                 new myLocationListener()
         );
-
+        openSend();
 
         retrieveLocationButton.setOnClickListener(new OnClickListener() {
 
@@ -97,56 +101,61 @@ public class RequestLocation extends Activity {
 
             public void onClick(View v) {
 
-                showCurrentLocation();
+                openSend();
 
             }
 
         });
-
-    }
-    public void openHome() {
-        Intent intent = new Intent(this, Home.class);
-        startActivity(intent);
     }
 
-    public void openSavedContacts() {
-        Intent intent = new Intent(this, emergContacts.class);
-        startActivity(intent);
-    }
+    public void openSend() {
+        //  settings st = new settings();
+        SharedPreferences prefs = getSharedPreferences("Settings", MODE_PRIVATE);
+        checkSend = prefs.getString("checkSend", "missing");
+        System.out.println(checkSend);
+        switch (checkSend) {
+            case "nodisplay":
+                showCurrentLocationNoDisplay();
+                break;
+            case "display":
+                showCurrentLocationWithDisplay();
+                break;
+        }
 
-
-
-    public void openMap() {
-        Intent intent = new Intent(this, MapsActivity.class);
-        startActivity(intent);
-    }
-    public void openSettings(){
-        Intent intent = new Intent(this, settings.class);
-        startActivity(intent);
     }
 
 
+    protected void showCurrentLocationNoDisplay() {
 
-    protected void showCurrentLocation() {
-
-
+        SharedPreferences sp = getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        String userName = sp.getString("userName", "missing");
         Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
 
         if (location != null) {
-            String message = "You can track my location here: http://maps.google.com/maps?q=loc:" + String.format("%f,%f", location.getLatitude(), location.getLongitude()); //String.format(
+            String message = "A MESSAGE FROM KEEPSAFE: \n You can track " + userName + "'s location here: http://maps.google.com/maps?q=loc:" + String.format("%f,%f", location.getLatitude(), location.getLongitude());
 
-            //    "Current Location \n Longitude: %1$s \n Latitude: %2$s",
 
-            //  location.getLongitude(), location.getLatitude()
+            SmsManager.getDefault().sendTextMessage(textContacts, null, message, null, null);
 
-            // );
-            Uri sms_uri = Uri.parse("smsto:" + appcontacts);
+
+        }
+    }
+
+    public void showCurrentLocationWithDisplay() {
+        Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        SharedPreferences sp = getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        String userName = sp.getString("userName", "missing");
+
+        if (location != null) {
+            String message = "A MESSAGE FROM KEEPSAFE \n You can track " + userName + "'s location here: http://maps.google.com/maps?q=loc:" + String.format("%f,%f", location.getLatitude(), location.getLongitude()); //String.format(
+
+
+            Uri sms_uri = Uri.parse("smsto:" + textContacts);
             Intent intent = new Intent(android.content.Intent.ACTION_SENDTO, sms_uri);
             //intent.setType("vnd.android-dir/mms-sms");
             intent.putExtra("sms_body", message);
             startActivity(intent);
-
 
         }
     }

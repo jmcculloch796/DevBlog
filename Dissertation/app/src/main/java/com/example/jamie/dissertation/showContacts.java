@@ -43,11 +43,7 @@ public class showContacts extends AppCompatActivity {
         System.out.println(appcontacts);
 
     }
-    public void openEmergencyContacts(View view){
-        Intent intent = new Intent(this, EmergencyContacts.class);
-        intent.putStringArrayListExtra("savedContacts", appcontacts);
-        startActivity(intent);
-}
+
 
     public void printToScreen(){
         System.out.println("Test");
