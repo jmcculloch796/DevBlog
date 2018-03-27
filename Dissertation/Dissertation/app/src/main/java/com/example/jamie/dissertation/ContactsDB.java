@@ -24,7 +24,6 @@ public class ContactsDB {
         this._contactname = contactname;
         this._contactNo = contactNo;
     }
-
     public void setID(int id){
         this._id = id;
     }

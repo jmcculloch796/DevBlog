@@ -186,9 +186,5 @@ public class myDBHandler extends SQLiteOpenHelper {
         return contacts;
 
 
-    }
-    public String[] getSavedContacts() {
-        System.out.println(savedContacts);
-        return this.savedContacts;
-    }
-}
+    }}
+
