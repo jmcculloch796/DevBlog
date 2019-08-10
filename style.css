@@ -5,43 +5,43 @@ html {
 }
 
 table {
-   width:50%;
-   border: 1px solid black;
+    width:50%;
+    border: 1px solid black;
 }
 
 
 h1 {
 
-  text-align: center;
-  font-size: 50px;
+    text-align: center;
+    font-size: 50px;
 }
 
 h2{
-  font-style: italic;
-  text-align: center;
-  text-decoration: underline;
+    font-style: italic;
+    text-align: center;
+    text-decoration: underline;
 }
 
 h3{
-  font-style: bold;
+    font-style: bold;
 }
 
 h5{
-	text-align: center;
-  text-decoration: underline;
+    text-align: center;
+    text-decoration: underline;
 
 }
 
 .footer{
-  display: block;
-margin-left: auto;
-margin-right: auto;
-padding-top: 50px;
-text-align:center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+    text-align:center;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .header {
@@ -49,26 +49,35 @@ a {
 }
 
 p {
-padding-left: 50px;
-  text-align: left;
-padding-right: 50px;
+    padding-left: 50px;
+    text-align: left;
+    padding-right: 50px;
 
 }
 
 table, th, td {
-   width:50%;
-   border: 1px solid black;
+    width:50%;
+    border: 1px solid black;
 }
 
 h4{
-  text-decoration: underline;
-  padding-top: 25px;
-  padding-left: 25px;
+    text-decoration: underline;
+    padding-top: 25px;
+    padding-left: 25px;
 
 }
 
 h5{
-  font-weight: 700;
-  text-align: center;
+    font-weight: 700;
+    text-align: center;
 
+}
+
+#blog_image{
+    width: 375px;
+    height: 275px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
 }

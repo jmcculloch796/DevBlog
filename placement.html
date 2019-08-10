@@ -43,51 +43,26 @@
             </ul>
 </nav>
 
-<!-- w3-content defines a container for fixed size centered content,
-and is wrapped around the whole page content, except for the footer in this example -->
 <div class="w3-content" style="max-width:1400px">
 
-<h3> KeepSafe - Mark A awarded </h3>
-    <div class="img-fluid">
-        <img class="mySlides" src="img/Home.png" >
-        <img class="mySlides" src="img/Alertmode.png">
-        <img class="mySlides" src="img/requestLocation.png">
-        <img class="mySlides" src="img/settings.jpg">
-    </div>
-    <div>
-        <button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-        <button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
-    </div>
-<p> Above are some screenshots from my personal safety application. The application stores emergency contacts and can send location updates to these saved contacts.
-    I also implemented an alert state, which is a cleaner interface, and allows the user to interact with the application
-    quicker - essential if they are need to send an update or record video in a hurry. Click on any of the pictures
-    below to get a better look. My full dissertation will be available when it is submitted on the 23rd of April. </p>
+    <h3>Time2Dine</h3>
+    <img src="img/t2d.png"/> <br><br><br>
+    <p>Since May I have been working at <a href="https://www.time2dine.uk/#/">Time2Dine</a> as a software engineer. Time2Dine is an ambitious startup based in Glasgow. The goal of Time2Dine is to allow people to enjoy
+        restaurant food more efficiently and conveniently by letting them order and pay for their food in advance, then they just have to show up and they're food will be ready and waiting for them.
+        This has been a very challenging but rewarding experience. Having only ever worked in retail and hospitality, working in an office environment was very different, and took a bit of getting used to.
+        With it being a startup, there are only a few people working for the company, and this has meant that from the start I have had a lot of responsibility. This has been the most challenging
+        aspect of the internship but I feel I have finally settled in and I am in a position to now not only complete my tasks, but also help my colleagues with theirs. <br> <br>
+        I have been using the <a href="https://laravel.com/">Laravel</a> PHP framework, which is an excellent extension to PHP. I have enjoyed using Laravel and find it a very useful tool, so much so that it
+        is how I am hosting my blog now. Though university taught me a lot about web development and some PHP, it did not delve into any frameworks, so this was a brand new experience for me, but one that I feel will be
+        very useful for me in my career. I also have been using <a href="https://vuejs.org/">VueJS</a> to ensure the POS is as fluid and reactive as possible. I have really enjoyed using VueJS, and it is very easy to integrate
+        with Laravel. It allows me to auto update the orders page for the POS by pulling data from an API endpoint, without refreshing the page. Another part of my job is to protect the API
+        endpoints that I am retrieving data from. I am using OAuth2 authentication to protect the endpoint routes. I am generating a token by sending valid login details to the system, and this Bearer Token is then
+        sent as a header to the endpoint. The endpoint then checks to see if the token exists in the database, and if it is attributed to the user that is trying to access it. <br> <br>
+        I have learned a lot through this placement, it is one thing to do courseworks and projects within university, but it is another to complete projects that will be used in real life and by real people. It is a massive
+        responsibility but one that I have come to relish and enjoy.
+    </p>
 
-
-<h4> Features of KeepSafe </h4>
-<p> I have implemented many features into KeepSafe including:
-<ul type = "disc">
-    <li> A panic button, available on all activities at the bottom right corner. The user can customise what this does when triggered including:   </li>
-    <ul type="circle">
-        <li>Recording video </li>
-        <li> Playing a loud alarm noise</li>
-        <li> Sending a location update to all emergency contacts </li>
-        <li> Call 999 </li>
-    </ul>
-    <li> A journey countdown timer which the user can specify a time in minutes and KeepSafe will send a location update when the timer expires. </li>
-    <li> SQLite Database to store the saved emergency contacts within the application. </li>
-    <li> Two states - Standard and Alert - to allow the user to feel safer.</li>
-    <li> Finding the users latitude and longitude from their phone GPS and sending a location update displaying this on Google Maps.</ul>
-
-<h3> Final Submission </h3>
-I have completed and submitted my fourth year dissertation project. It has been a challenging experience but very rewarding and I am proud of the outcome! If you are interested in reading the dissertation you can download it <a href="Reports/DissertationFINAL.pdf">here</a>.
-It has been really fun to complete this project and research
-personal safety applications in general, it is such an unknown concept. During the project I found that the majority of
-people use their phones to make themselves feel safer when out and about, yet none had heard of a personal safety
-application that would enhance this. I achieved an A for my dissertation with a score of 75%.
-
-<script src="dissmodal.js"></script>
-
+</div>
 <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
 
     <div class="footer">
@@ -101,7 +76,6 @@ application that would enhance this. I achieved an A for my dissertation with a 
         <div id="time"> </div>
     </div>
 </footer>
-
 <script src="time.js"></script>
 </body>
 </html>

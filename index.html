@@ -1,91 +1,253 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta name="viewport" content="width=device-width">
-   <link rel="stylesheet" href="style.css">
-      <link rel="icon" href="Logo.png">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <title> Jamie's Web Blog </title>
-</head>
-<body>
-  <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    <div class="navbar-header">
-      <a class="navbar-brand" href="index.html">Jamie's Dev Blog</a>
-    </div>
+<title>Jamie's Web Blog</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<style>
+    html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+</style>
+<body class="w3-light-grey">
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">Jamie's Dev Blog</a>
+        </div>
         <div class="collapse navbar-collapse" id="myNavbar">
-    <ul class="nav navbar-nav">
-      <li class="active"><a>Homepage</a></li>
-      <li><a href="aboutme.html">About Me</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="resources.html">Resources</a></li>
-      <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="uni.html">University
-              <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="diss.html">Dissertation</a></li>
-                <li><a href="courses.html">Courses</a></li>
-              </ul>
-        </li>
-    </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Homepage</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="uni.html">Academic
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="diss.html">Dissertation</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="placement.html">Time2Dine</a></li>
+                    </ul>
+                </li>
+            </ul>
 </nav>
-  <h1> Jamie McCulloch </h1>
-  <h2> Aspiring Software Engineer </h2>
-<div class="Blog">
-  <h3> Recent updates </h3>
-  <h4> Safety App </h4>
-  <p><i> Date posted : 09/02/2018 </i> <br> <br> 
-  I have a repository on my GitHub which contains my <a href="diss.html"> personal safety application for my dissertation</a>. It is available on my <a href="https://github.com/jmcculloch796"> GitHub profile</a> if you'd like to take a look. I will be updating the dissertation page soon with screenshots of the app running. 
-  </p>
 
-  <h4> Added online CV </h4>
-  <p><i> Date posted: 1/02/2018 </i> <br><br>
-  I have added a page for my <a href="cv.html"> CV here </a>to make it easier for those using the website to see. 
-  <h4> Exam Results </h4>
-  <p><i> Date posted: 31/01/2018 </i> <br> <br> 
-  I have now received my exam results for semester 1 of year 4. I achieved an A (75%) for my <a href="Dissertation_D1.pdf">first deliverable of my dissertation </a>(downloads .pdf file) and two B's in Data Mining and Machine Learning (63%) and Professional and Industrial Studies (66%). More details on these courses <a href="courses.html"> here</a>. However I am dissapointed in my grade for Data Visualisation (32%) as I prioritised other courses and dissertation over this which resulted in a much lower grade. Overall, I am happy with these results, as this was my first true challenge concerning time management within my time at university. This means I currently have a 59% average in fourth year, and I can bring that up with second semester looming.</p>
-  <h4> Week 3 of Semester 2 </h4>
-    <p> <i> Date posted: 24/01/2018 </i> <br> <br>
-      With the second semester of university already flying by, I have been creating some smaller android apps to get me back into the swing of things again. Once completed these will be available <a href="apps.html"> here </a> or through the projects page on the toolbar.
-      <br> <br>
-      Two of the courses I am sitting this semester are E-Commerce Technology and Big Data Management, both of which I am finding very interesting. Through Big Data Management I am learning to use mongoDB, and applying JSON hierarchies which I am finding enjoyable. 
-  <h4> Back to uni update and dissertation result </h4>
-  <p>  <i>Date posted: 12/01/18</i> <br> <br>
- Back to uni after christmas break, and I am raring to get stuck into second semester. I already have a job opportunity coming up which will test me and I hope to
-    learn a lot from. As for now, I am picking away at my dissertation, designing the UI and hope to sort that before next week. As for the first deliverable for my dissertation, I was awarded 75% for it, and I intend to maintain this at the end of second semester, and achieve a first for it.
-  <h4> Dissertation deliverable 1 hand in </h4>
-  <p> <i>Date posted: 23/11/2017 </i> <br> <br>
-    After a tough few weeks I have completed the first draft of my dissertation and submitted it. If you would like to read it, it is available <a href="Dissertation_D1.pdf"> here </a>(downloads .pdf file).
-  <h4> Picking a dissertation topic </h4>
-  <p> <i>Date posted: 25/09/17</i> <br> <br>
-  <p> For my fourth year dissertation <a  href="diss.html"> (more details here) </a> I have decided to investigate Personal Safety mobile applications and develop my own. This project includes a lot, including conducting a survey to determine if people find them useful and if so, what kind of features they expect from one. I will then begin to design my own app, implement it, test it, and evaluate if it is fit for purpose and if it improves personal safety of its users. I am incredibly excited to be taking part in this project and hope to learn a lot from it. </p>
+<!-- w3-content defines a container for fixed size centered content,
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1400px">
 
-<h4> Creating a blog </h4>
-<p> <i>Date posted: 10/09/17</i> <br> <br>
-<p> After months of procrastination, I've finally got around to creating this website, a development blog for all the projects I am currently a part of. For a list of projects click <a href="projects.html"> here </a>
- <!-- <form action="database.php" method="post"> Title of post <input type="text" name="titleofpost">
-    <br>
-    Content of post <input type="text" name="contentofpost"><br>
-    <input type="submit">
-  </form> -->
+    <!-- Header -->
+    <header class="w3-container w3-center w3-padding-32">
+        <h1><b>Jamie McCulloch</b></h1>
+        <h3>Graduate Software Developer</h3>
+    </header>
+
+    <!-- Grid -->
+    <div class="w3-row">
+
+        <!-- Blog entries -->
+        <div class="w3-col l8 s12">
+            <!-- Blog entry -->
+            <div class="w3-card-4 w3-margin w3-white">
+<!--                <img src="img/grad.jpg" alt="graduation pic" id="blog_image">-->
+                <div class="w3-container">
+                    <h3><b>Graduation</b></h3>
+                    <h5>Date Posted: <span class="w3-opacity">22nd June 2019</span></h5>
+                </div>
+
+                <div class="w3-container">
+                    <p>After five long years I have finally graduated with a first class masters! The graduation took place at Heriot-Watt on the 21st of June
+                    and was a very enjoyable day all round! I am very happy with the work I have done over the last 5 years in university, and I am really looking
+                    forward to the challenges that are yet to come. </p>
+                    <div class="w3-row">
+
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <!-- Blog entry -->
+            <div class="w3-card-4 w3-margin w3-white">
+                <img src="img/ScotSoft2018.jpg" alt="Nature" id="blog_image">
+                <div class="w3-container">
+                    <h3><b>ScotSoft 2018</b></h3>
+                    <h5>Date Posted: <span class="w3-opacity">28th October 2018</span></h5>
+                </div>
+
+                <div class="w3-container">
+                    <p>Thanks to e-Placement, Time2Dine got invited to attend the ScotSoft conference at the EICC in Edinburgh. The conference was filled with very interesting talks and I learned a lot from each of them I attended. There was such
+                    a variety of topics, so there was something for everyone. I attended talks ranging from technology in the health sector, to penetration testing, to the importance of Open Data and the rise of OpenStreetMaps. We were also
+                    invited to attend the Awards Dinner, in which we'd be presented the e-Placement of the year award (which Time2Dine got awarded silver). The night was fantastic, and was topped off with a wonderful after dinner speech from the 2-time Gold Medallist Lizzy Yarnold. </p>
+                    <div class="w3-row">
+
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <!-- Blog entry -->
+            <div class="w3-card-4 w3-margin w3-white">
+                <div class="w3-container">
+                    <h3><b>Dissertation submitted</b></h3>
+                    <h5>Date posted:<span class="w3-opacity">23rd April 2018</span></h5>
+                </div>
+
+                <div class="w3-container">
+                    <p> I have finally finished my fourth year dissertation! More details available on the <a href="diss.html">dissertation</a> page, and my dissertation is available for download <a href="Reports/DissertationFINAL.pdf">here </a>if you would like to take a look.
+                    </div>
+            </div>
+            <hr>
+
+                <!-- Blog entry -->
+                <div class="w3-card-4 w3-margin w3-white">
+                    <div class="w3-container">
+                        <h3><b>Screenshots of KeepSafe</b></h3>
+                        <h5>Date posted:<span class="w3-opacity">5th April 2018</span></h5>
+                    </div>
+
+                    <div class="w3-container">
+                    <p>I have finished the third (and final) prototype for my personal safety application - KeepSafe. More details are <a href="diss.html">here</a> including screenshots.</p>
+                        </div>
+                </div>
+                    <hr>
+                    <!-- Blog entry -->
+                    <div class="w3-card-4 w3-margin w3-white">
+                        <div class="w3-container">
+                            <h3><b>Added online CV</b></h3>
+                            <h5>Date posted:<span class="w3-opacity">1st February 2018</span></h5>
+                        </div>
+                        <div class="w3-container">
+                        <p> I have added a page for my <a href="cv.html">CV</a> to make it easier to access.</p>
+                  </div>
+                 </div>
+        <hr>
+
+            <!-- Blog entry -->
+            <div class="w3-card-4 w3-margin w3-white">
+                <img src="img/examresults.jpg" alt="exam_results" id="blog_image">
+                <div class="w3-container">
+                    <h3><b>Exam Results</b></h3>
+                    <h5>Date posted:<span class="w3-opacity"> 31st January 2018</span></h5>
+                </div>
+                <div class="w3-container">
+                    <p> I have now received my exam results for semester 1 of year 4. I achieved an A for my <a href="Reports/Dissertation_D1.pdf">first deliverable of my dissertation </a> and two B's in Data Mining and Machine Learning (62%) and Professional and Industrial Studies (65%). More details on these courses <a href="courses.html"> here</a>. However I am dissapointed in my grade for Data Visualisation (32%) as I prioritised other courses and dissertation over this which resulted in a much lower grade. Overall, I am happy with these results, as this was my first true challenge concerning time management within my time at university.</p>
+                </div>
+            </div>
+            <hr>
+
+            <!-- Blog entry -->
+            <div class="w3-card-4 w3-margin w3-white">
+                <img src="img/hw.png" alt="Heriot watt logo" id="blog_image">
+                <div class="w3-container">
+                    <h3><b>Week 3, Semester 2</b></h3>
+                    <h5>Date posted:<span class="w3-opacity"> 24th January 2018</span></h5>
+                </div>
+                <div class="w3-container">
+                   <p> With the second semester of university already flying by, I have been creating some smaller android apps to get me back into the swing of things again. Once completed these will be available <a href="apps.html"> here </a> or through the projects page on the toolbar.
+                    <br> <br>
+                       Two of the courses I am sitting this semester are E-Commerce Technology and Big Data Management, both of which I am finding very interesting. Through Big Data Management I am learning to use mongoDB, and applying JSON hierarchies which I am finding enjoyable.         </p>         </div> </div>
+            <hr>
+
+            <!-- Blog entry -->
+            <div class="w3-card-4 w3-margin w3-white">
+                <img src="img/update.png" alt="update" id="blog_image">
+                <div class="w3-container">
+                    <h3><b>Back to uni update, and dissertation first deliverable result</b></h3>
+                    <h5>Date posted:<span class="w3-opacity"> 12th January 2018</span></h5>
+                </div>
+                <div class="w3-container">
+                    <p>Back to uni after christmas break, and I am raring to get stuck into second semester. I already have a job opportunity coming up which will test me and I hope to learn a lot from. As for now, I am picking away at my dissertation, designing the UI and hope to sort that before next week. As for the first deliverable for my dissertation, I was awarded 75% for it, and I intend to maintain this at the end of second semester, and achieve a first for it. </p>
+
+                     </div> </div>
+            <hr>
+
+
+            <!-- Blog entry -->
+            <div class="w3-card-4 w3-margin w3-white">
+                <div class="w3-container">
+                    <h3><b>Disseration deliverable 1 hand in</b></h3>
+                    <h5>Date posted:<span class="w3-opacity"> 23th Novemeber 2017</span></h5>
+                </div>
+                <div class="w3-container">
+                    <p>After a tough few weeks, I have completed the first draft of my dissertation and submitted it. It is available <a href="Reports/Dissertation_D1.pdf">here </a>if you'd like to read it. </p>
+
+                </div> </div>
+            <hr>
+
+            <!-- Blog entry -->
+            <div class="w3-card-4 w3-margin w3-white">
+                <div class="w3-container">
+                    <h3><b>Picking a dissertation topic</b></h3>
+                    <h5>Date posted:<span class="w3-opacity"> 25th September 2017</span></h5>
+                </div>
+                <div class="w3-container">
+                    <p> For my fourth year dissertation <a  href="diss.html"> (more details here) </a> I have decided to investigate Personal Safety mobile applications and develop my own. This project includes a lot, including conducting a survey to determine if people find them useful and if so, what kind of features they expect from one. I will then begin to design my own app, implement it, test it, and evaluate if it is fit for purpose and if it improves personal safety of its users. I am incredibly excited to be taking part in this project and hope to learn a lot from it. </p>
+
+                </div> </div>
+            <hr>
+
+            <!-- Blog entry -->
+            <div class="w3-card-4 w3-margin w3-white">
+                <div class="w3-container">
+                    <h3><b>Creating a blog</b></h3>
+                    <h5>Date posted:<span class="w3-opacity"> 10th September 2017</span></h5>
+                </div>
+                <div class="w3-container">
+                    <p> After months of procrastination, I've finally got around to creating this website, a development blog for all the projects I am currently a part of. For a list of projects click <a href="projects.html"> here </a>
+
+                </div> </div>
+            <hr>
+                        <!-- END BLOG ENTRIES -->
+        </div>
+
+        <!-- Introduction menu -->
+        <div class="w3-col l4">
+            <!-- About Card -->
+            <div class="w3-card w3-margin w3-margin-top">
+                <img src="img/grad.jpg" style="width:100%">
+                <div class="w3-container w3-white">
+                    <h4><b>About Me</b></h4>
+                    <p>Hello, my name is Jamie McCulloch, and I am a fifth year student at Heriot Watt University. I am currently studying a Masters in Software Engineering with the intention of graduating in 2019. I am also undertaking a placement at Time2Dine, more details on that here
+                    Now in my fifth year I have worked on a lot of projects within university (see here: projects) ranging from a currency converter Android application to using an A* search algorithm for robots to find their goals. While university has most definitely been challenging, I still have the same passion for computing and technology as I did when I changed the ink in a printer for the first time.
+
+I have just finished a 6 month placement working as a software engineer at Time2Dine in Glasgow. I learned and then developed in Laravel, a PHP framework that has quickly become a favourite of mine through its Eloquent model to manipulate database records, and the simplicity of it all. I also delved into VueJS to make the
+                        website reactive to different actions. More of this detailed <a href="placement.html">here</a> if interested. I also work in a local golf club/country club at the weekends, and have done so for around 3 years.
+                        My online CV is available <a href="cv.html">here</a> if you would like to take a look.
+                    For any enquiries my work related email is jmcculloch196@gmail(dot)com, I aim to be as responsive on this as possible and should reply within a few hours at most.</p>                </div>
+            </div><hr>
+
+            <!-- END Introduction Menu -->
+        </div>
+
+        <!-- END GRID -->
+    </div><br>
+
+    <!-- END w3-content -->
 </div>
-<div class="footer">
-  <a href="https://github.com/jmcculloch796">
-<img class ="center display" src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub profile" height="30" width = "30" style="align-items=center"> </a>
-<a href= "https://www.linkedin.com/in/jamie-mcculloch-346046a6/">
-  <img class="center display" src="https://intuitivedigital.com/wp-content/uploads/2016/02/linkedin-icon.png" alt="LinkedIn profile" height="30" width="30" style="align-items=center"> </a>
-  <a href= "https://twitter.com/jgmdev">
-    <img class="center display" src="twitter.png" alt="Twitter profile" height="30" width="30" style="align-items=center"> </a>
-  <div id="time"> </div>
+
+<!-- Footer -->
+<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+
+    <div class="footer">
+        <p style="text-align: center">Check out my personal profiles below</p>
+        <a href="https://github.com/jmcculloch796">
+            <img class ="center display" src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub profile" height="30" width = "30" style="align-items=center"> </a>
+        <a href= "https://www.linkedin.com/in/jamie-mcculloch-346046a6/">
+            <img class="center display" src="https://intuitivedigital.com/wp-content/uploads/2016/02/linkedin-icon.png" alt="LinkedIn profile" height="30" width="30" style="align-items=center"> </a>
+        <a href= "https://twitter.com/jgmdev">
+            <img class="center display" src="img/twitter.png" alt="Twitter profile" height="30" width="30" style="align-items=center"> </a>
+        <div id="time"> </div>
+    </div>
+</footer>
+
 </body>
 <script src="time.js"></script>
-
-</script>
 </html>
